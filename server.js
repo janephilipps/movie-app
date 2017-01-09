@@ -5,26 +5,20 @@ const app = express();
 
 app.set('port', (process.env.PORT || 8000));
 
-// Express only serves static assets in production
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static('client/build'));
-// }
-
-app.get('/api/popular', function(req, res) {
-    console.log('getting popular movies');
-    movieApi.popular().then(function(data) {
+app.get('/api/popular', (req, res) => {
+    movieApi.popular().then((data) => {
         res.send(data);
     });
 });
 
-app.get('/api/search', function(req, res) {
-    movieApi.search().then(function(data) {
+app.get('/api/search', (req, res) => {
+    movieApi.search(req.query.query).then((data) => {
         res.send(data);
     });
 });
 
-app.get('/api/movie/:id', function(req, res) {
-    movieApi.details(req.params.id).then(function(data) {
+app.get('/api/movie/:id', (req, res) => {
+    movieApi.details(req.params.id).then((data) => {
         res.send(data);
     });
 });

@@ -9,13 +9,11 @@ export default class SearchBar extends React.Component {
   }
 
   _handleChange(e) {
-    console.log('_handleChange');
     e.stopPropagation();
     this.props.onChange(e);
   }
 
   _handleSubmit(e) {
-    console.log('_handleSubmit');
     e.stopPropagation();
     this.props.onSubmit(e);
   }

@@ -35,7 +35,6 @@ export default class App extends React.Component {
     return this._getMovies()
       .then((movies) => {
         this.setState({movies});
-        console.log('state:' , this.state);
       })
   };
 
@@ -50,24 +49,20 @@ export default class App extends React.Component {
   }
 
   searchMovies = (query) => {
-    console.log('searchMovies');
     return fetch('//localhost:8000/api/search?query=' + query)
       .then((res) => res.json())
       .then((body) => body.results)
   };
 
   _searchMovies = (query) => {
-    console.log('_searchMovies');
     return this.searchMovies(query)
       .catch((ex) => console.error(ex))
   };
 
   _searchQueryMovies = (query) => {
-    console.log('searchQueryMovies');
     return this._searchMovies(query)
       .then((movies) => {
         this.setState({movies});
-        console.log('state:' , this.state);
       })
   };
 

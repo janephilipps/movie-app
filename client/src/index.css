@@ -2,3 +2,27 @@
     font-family: Futura, Arial, sans-serif;
     font-size: 1em;
 }
+
+img {
+    width: 200px;
+    display: inline-block;
+}
+
+.search-bar-form {
+    padding: 40px 0 0 40px;
+}
+
+.movie-list-item {
+    padding-bottom: 20px;
+}
+
+.movie-list-item__text {
+    display: inline-block;
+    padding-left: 20px;
+    vertical-align: top;
+    width: 400px;
+}
+
+.movie-list-item__title {
+    font-weight: bold;
+}

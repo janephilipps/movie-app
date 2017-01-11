@@ -12,6 +12,7 @@ export default class MovieList extends React.Component {
 
     let movieListItems = this.props.movies.map((movie) => (
       <MovieListItem
+        id={movie.id}
         title={movie.title}
         overview={movie.overview}
         popularity={movie.popularity}
@@ -21,7 +22,6 @@ export default class MovieList extends React.Component {
 
     return (
       <div>
-        <h1>Current Popular Movies</h1>
         <ul>{movieListItems}</ul>
       </div>
     );

@@ -21,8 +21,6 @@ export default class SearchBar extends React.Component {
   render() {
 
     let {
-      onChange,
-      onSubmit,
       value
     } = this.props;
 

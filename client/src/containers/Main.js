@@ -9,8 +9,7 @@ export default class Main extends React.Component {
     this.state = {
       title: 'Popular Movies',
       value: '',
-      movies: [],
-      movie: {}
+      movies: []
     };
 
     this._handleChange = this._handleChange.bind(this);
@@ -18,26 +17,16 @@ export default class Main extends React.Component {
   }
 
   componentDidMount() {
-    this._getPopularMovies();
+    console.log('props: ', this.props);
+    let url;
+    if (this.props.location.query.query) {
+      url = this._buildSearchUrl(this.props.location.query.query);
+      this._setMovies(url);
+    } else {
+      url = '//localhost:8000/api/popular';
+      this._setMovies(url);
+    }
   }
-
-  getMovies = () => (
-    fetch('//localhost:8000/api/popular')
-      .then((res) => res.json())
-      .then((body) => body.results)
-  );
-
-  _getMovies = () => (
-    this.getMovies()
-      .catch((ex) => console.error(ex))
-  );
-
-  _getPopularMovies = () => {
-    return this._getMovies()
-      .then((movies) => {
-        this.setState({movies});
-      })
-  };
 
   _handleChange(e) {
     this.setState({value: e.target.value});
@@ -45,27 +34,26 @@ export default class Main extends React.Component {
 
   _handleSubmit(e) {
     e.preventDefault();
-    this._searchQueryMovies(this.state.value);
+    this._setMovies(this._buildSearchUrl(this.state.value));
     this.setState({value: ''});
   }
 
-  searchMovies = (query) => {
-    return fetch('//localhost:8000/api/search?query=' + query)
+  _buildSearchUrl(query) {
+    return `//localhost:8000/api/search?query=${query}`;
+  }
+
+  getMovies = (url) => (
+    fetch(url)
       .then((res) => res.json())
       .then((body) => body.results)
-  };
+  );
 
-  _searchMovies = (query) => {
-    return this.searchMovies(query)
-      .catch((ex) => console.error(ex))
-  };
-
-  _searchQueryMovies = (query) => {
-    return this._searchMovies(query)
+  _setMovies = (url) => (
+    this.getMovies(url)
       .then((movies) => {
         this.setState({movies});
       })
-  };
+  );
 
   render() {
     return (

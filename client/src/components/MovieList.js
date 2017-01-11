@@ -1,4 +1,3 @@
-import 'whatwg-fetch';
 import React from 'react';
 import MovieListItem from './MovieListItem';
 
@@ -10,8 +9,13 @@ export default class MovieList extends React.Component {
 
   render() {
 
-    let movieListItems = this.props.movies.map((movie) => (
+    let {
+      movies
+    } = this.props;
+
+    let movieListItems = movies.map((movie) => (
       <MovieListItem
+        key={movie.id}
         id={movie.id}
         title={movie.title}
         overview={movie.overview}

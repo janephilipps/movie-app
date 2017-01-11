@@ -21,7 +21,6 @@ export default class MovieDetail extends React.Component {
         <p>Title: {title}</p>
         <p>Overview: {overview}</p>
         <p>Tagline: {tagline}</p>
-
       </div>
     );
   }

@@ -11,6 +11,9 @@ export default class App extends React.Component {
         <Route path="/" component={Main}>
           <Main />
         </Route>
+        <Route path="/search?query=(:query)" component={Main}>
+          <Main {...this.props} />
+        </Route>
         <Route path="/movie/:id" component={Detail}>
           <Detail {...this.props} />
         </Route>

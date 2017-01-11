@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
-import 'whatwg-fetch';
 
 export default class MovieListItem extends React.Component {
 
   static propTypes = {
-    id: React.PropTypes.integer,
+    id: React.PropTypes.number,
     title: React.PropTypes.string,
     overview: React.PropTypes.string,
-    popularity: React.PropTypes.integer,
+    popularity: React.PropTypes.number,
     posterPath: React.PropTypes.string
   }
 
@@ -24,7 +23,7 @@ export default class MovieListItem extends React.Component {
 
     return (
       <div className="movie-list-item">
-        <img src={"https://image.tmdb.org/t/p/w500/" + posterPath} />
+        <img src={"https://image.tmdb.org/t/p/w500/" + posterPath} alt={title} />
         <div className="movie-list-item__text">
           <Link to={"/movie/" + id}>
             <span className="movie-list-item__title">{title}</span>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 
 export default class MovieDetail extends React.Component {
 
@@ -25,7 +24,9 @@ export default class MovieDetail extends React.Component {
 
     return (
       <div className="movie-list-item">
-        <img src={"https://image.tmdb.org/t/p/w500/" + posterPath} alt={title} />
+        <a href={homepage} target="_blank">
+          <img src={"https://image.tmdb.org/t/p/w500/" + posterPath} alt={title} />
+        </a>
         <div className="movie-list-item__text">
           <a href={homepage} target="_blank">
             <span className="movie-list-item__title">{title}</span>

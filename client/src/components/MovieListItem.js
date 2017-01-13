@@ -23,7 +23,9 @@ export default class MovieListItem extends React.Component {
 
     return (
       <div className="movie-list-item">
-        <img src={"https://image.tmdb.org/t/p/w500/" + posterPath} alt={title} />
+        <Link to={"/movie/" + id}>
+          <img src={"https://image.tmdb.org/t/p/w500/" + posterPath} alt={title} />
+        </Link>
         <div className="movie-list-item__text">
           <Link to={"/movie/" + id}>
             <span className="movie-list-item__title">{title}</span>

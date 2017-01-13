@@ -26,3 +26,11 @@ img {
 .movie-list-item__title {
     font-weight: bold;
 }
+
+.search-bar-submit {
+    margin-left: 10px;
+    height: 27px;
+    border: 1px solid #000;
+    background-color: #FFF;
+    cursor: pointer;
+}

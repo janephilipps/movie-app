@@ -34,6 +34,9 @@ export default class Detail extends React.Component {
           title={this.state.movie.title}
           overview={this.state.movie.overview}
           tagline={this.state.movie.tagline}
+          posterPath={this.state.movie.poster_path}
+          releaseDate={this.state.movie.release_date}
+          homepage={this.state.movie.homepage}
         />
       </div>
     );
